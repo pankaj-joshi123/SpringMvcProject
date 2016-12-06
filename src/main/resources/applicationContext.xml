@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+     http://www.springframework.org/schema/tx
+     http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+  <bean id="userA" class="oltiv.business.User">
+    <property name="age" value="38"/>
+    <property name="name" value="Sibbu"/>
+    <property name="lastname" value="Kai baar"/>
+  </bean>
+
+  <bean id="Prapti" class="oltiv.business.Prapti">
+    <property name="boyFrndName"  value="Rishta"/>
+    <property name="boyFrndLastName" value="HaiTujhse"/>
+  </bean>
+
+  <bean id="MasterDao" class="oltiv.Dao.Impl.MasterDaoImpl">
+    <property name="sessionFactory" ref="sessionFactory"/>
+  </bean>
+
+  <bean id="userSvc" class="oltiv.service.Impl.UserServiceImpl">
+     <property name="abc" ref="userA"/>
+     <property name="masterDao" ref="MasterDao"/>
+  </bean>
+
+  <bean id="praptiSvc" class="oltiv.service.Impl.PraptiServiceImpl">
+     <property name="prapti" ref="Prapti"/>
+     <property name="masterDao" ref="MasterDao"/>
+  </bean>
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="myDataSource" />
+        <property name="mappingResources">
+            <list>
+                <value>Hibernate-mapping/user.xml</value>    <!--just provide location-->
+                <value>Hibernate-mapping/prapti.xml</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <value>
+                hibernate.dialect=org.hibernate.dialect.MySQLDialect
+            </value>
+        </property>
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+    <bean id="myDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/masti"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+    </bean>
+
+    <bean id="liquibase" class="liquibase.integration.spring.SpringLiquibase">
+        <property name="dataSource" ref="myDataSource"/>
+        <property name="changeLog" value="classpath:db.changelog-master.xml" />
+    </bean>
+
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+</beans>

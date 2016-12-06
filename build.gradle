@@ -1,0 +1,39 @@
+group 'org.openspec'
+version '1'
+
+apply plugin: 'java'
+apply plugin: 'war'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile group: 'org.springframework', name: 'spring-context', version: '4.3.4.RELEASE'
+    compile group: 'org.springframework', name: 'spring-web', version: '4.3.1.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '1.4.1.RELEASE'
+    compile group: 'org.hibernate', name: 'hibernate-core', version: '4.3.4.Final'
+    compile group: 'org.springframework', name: 'spring-orm', version: '4.0.3.RELEASE'
+    compile group: 'commons-dbcp', name: 'commons-dbcp', version: '1.2.2'
+    compile group: 'org.liquibase', name: 'liquibase-core', version: '2.0.3'
+    compile group: 'org.liquibase', name: 'liquibase-maven-plugin', version: '3.5.3'
+}
+
+task createWar(type: War) {
+    from ('./') {
+        include '*.xml'
+        into '/WEB-INF/'
+    }
+}
+
+task moveToTomcat(type:Copy,dependsOn:createWar) {
+    from "build/libs"
+    into "/home/pankaj/apache-tomcat-9.0.0.M11/webapps"
+    println 'moving to tomcat'
+    include "*.war"
+}
+
+build.dependsOn moveToTomcat

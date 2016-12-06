@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+
+  <!-->read about checksum and more about liquibase<-->
+
+  <changeSet author="pjoshi" id="first table" failOnError="true">
+    <createTable tableName="oltiv_pankaj">
+      <column name="IDENTIFIER" type="int" autoIncrement="${autoIncrement}">
+        <constraints primaryKey="true" nullable="false"/>
+      </column>
+      <column name="Age" type="int">
+      </column>
+    </createTable>
+  </changeSet>
+
+  <changeSet author="pjoshi" id="adding colums to oltiv_person">
+    <addColumn tableName="oltiv_pankaj">
+      <column name="address" type="varchar(255)"/>
+    </addColumn>
+  </changeSet>
+
+</databaseChangeLog>
