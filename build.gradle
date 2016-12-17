@@ -39,6 +39,11 @@ task createWar(type: War,dependsOn:runGrunt) {
         into '/www'
     }
 
+    from('./www') {
+        include 'ugliJS2.js'
+        into '/www'
+    }
+
     from('./') {
         include 'index.html'
     }

@@ -11,7 +11,7 @@ grunt.initConfig({
 	},
 	mytarget: {
  	 files: {
-   	  'www/ugliJS2.js':['www/**.js']
+   	  'ugliJS2.js':['www/**.js']
 	  }
 	}
   },
@@ -34,13 +34,18 @@ grunt.initConfig({
           collapseBooleanAttributes: true,
           removeCommentsFromCDATA: true,
           removeOptionalTags: true
-        },	
+     },
      mytarget: {
 	files: {
  	  'htmlMin.html':['www/**.html']
-        }
-     }
-  }
+      }
+    }
+  },
+
+    watch: {
+       files:['www/*.html','www/*.js'],
+       tasks:['build']
+    }
 
 });
 
@@ -49,5 +54,6 @@ grunt.initConfig({
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-ng-annotate');
+  grunt.loadNpmTasks('grunt-contrib-watch');
 };
 
