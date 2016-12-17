@@ -37,7 +37,7 @@ grunt.initConfig({
      },
      mytarget: {
 	files: {
- 	  'htmlMin.html':['www/**.html']
+ 	  'compress/htmlMin.html':['www/**.html']
       }
     }
   },
