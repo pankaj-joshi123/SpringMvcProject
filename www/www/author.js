@@ -17,16 +17,14 @@ app.controller("MainCtrl", ['$scope', '$http', '$window', function ($scope,$http
 		{
         $scope.mess2="post done from html";
 
-        var employees = { 'name': $scope.name , 'addr': $scope.addr, 'age': $scope.age, 'mob': $scope.mob, 'dob': $scope.dob };
+        var employees = { 'name': $scope.namme , 'addr': $scope.addr, 'age': $scope.age, 'mob': $scope.mob, 'dob': $scope.dob };
 
-                $http.post("http://localhost:8080/rest/ng/greeting/",employees)
+                $http.post("http://localhost:8080/rest/ng/greeting/mastibaap/",employees)
 			.success(function(data) {
 				console.log(employees);
 				$scope.post="done";
 			});
 		}
-
-
  }]); 
 
 app.controller("dispController", ['$scope', '$http', function ($scope,$http	) { 

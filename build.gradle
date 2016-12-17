@@ -35,16 +35,15 @@ task createWar(type: War,dependsOn:runGrunt) {
 
     from('./www/www') {
         include '*.html'
-        include 'ugliJS2.js'
         into '/www'
+    }
+
+    from('./www/compress') {
+        include '*.js'
+        into '/compress'
     }
 
     from('./www') {
-        include 'ugliJS2.js'
-        into '/www'
-    }
-
-    from('./') {
         include 'index.html'
     }
 
