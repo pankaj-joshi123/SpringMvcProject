@@ -22,10 +22,29 @@ dependencies {
     compile group: 'org.liquibase', name: 'liquibase-maven-plugin', version: '3.5.3'
 }
 
-task createWar(type: War) {
+task runGrunt(type: Exec) {
+    workingDir './www'
+    commandLine "grunt",'build'
+}
+
+task createWar(type: War,dependsOn:runGrunt) {
     from ('./') {
         include '*.xml'
         into '/WEB-INF/'
+    }
+
+    from('./www/www') {
+        include '*.html'
+        include 'ugliJS2.js'
+        into '/www'
+    }
+
+    from('./') {
+        include 'index.html'
+    }
+
+    from('./') {
+        include 'bootstrap/css/**.css'
     }
 }
 
