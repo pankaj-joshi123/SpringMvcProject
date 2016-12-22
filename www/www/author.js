@@ -1,16 +1,32 @@
-var app = angular .module("demo", ["ngRoute"])
-  .config(['$routeProvider', function ($routeProvider)
- { $routeProvider 
-.when("/emp", {    templateUrl: "www/employee.html",  controller: "MainCtrl" })
- .when("/disp", {  templateUrl: "www/display.html", controller: "dispController" })
- .when("/search",{ templateUrl: "www/search.html", controller: "searchController"})
- .when("/update",{ templateUrl: "www/update.html",  controller: "updateController"})
-.otherwise({
-   redirectTo : "/emp"
-    })
- }]);
+var app = angular.module('app', ['ui.router'])
 
-app.controller("MainCtrl", ['$scope', '$http', '$window', function ($scope,$http,$window) { 
+app.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider,$stateProvider)
+ {
+   $stateProvider
+ .state('emp',{
+   url:'/emp',
+   templateUrl:'www/employee.html',
+   controller: "MainCtrl" })
+
+ .state('disp',{
+    url:'/disp',
+    templateUrl: 'www/display.html',
+    controller: "dispController" })
+
+ .state('search',{
+    url:'/search',
+    templateUrl: 'www/search.html',
+    controller: 'searchController'})
+
+ .state('update',{
+    url:'/update',
+    templateUrl: 'www/update.html',
+    controller: "updateController"})
+
+  $urlRouterProvider.otherwise('/emp');
+}]);
+
+app.controller("MainCtrl", ['$scope', '$http', '$window', function ($scope,$http,$window) {
 
 
          $scope.addd =function()

@@ -1,26 +1,25 @@
 <!DOCTYPE html>
-<html ng-app="demo">
+<html ng-app="app">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Masti</title>
+    <title>Grunt</title>
 
     <!--boot Strap Sources -->
-    <!--link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"-->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!--boot Strap Sources eNDS-->
 
     <!--Angular Script source-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="www/angular-ui-router.min.js"></script>
     <!--Angular Script source ends-->
 
     <!--compressed Script source-->
-
+    <script src="compress/ugliJS2.js"></script>
     <!--compressed Script source ends-->
-
   </head>
   <body>
-  <script src="compress/ugliJS2.js"></script>
-  <div ng-view></div>
+  <ui-view></ui-view>
   </body>
 </html>
