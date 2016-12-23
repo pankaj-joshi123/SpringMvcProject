@@ -1,29 +1,33 @@
-var app = angular.module('oltiv', ['ui.router'])
+var app = angular.module('oltiv', [
+'ui.router',
+'oltiv.login',
+'oltiv.forgotPwd'
+]);
 
 app.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider,$stateProvider)
  {
    $stateProvider
- .state('emp',{
-   url:'/emp',
-   templateUrl:'app/employee.html',
-   controller: "MainCtrl" })
+ .state('login',{
+   url:'/login',
+   templateUrl:'app/modules/users/loginPage.html',
+   controller: "loginCtrl" })
 
- .state('disp',{
-    url:'/disp',
-    templateUrl: 'app/display.html',
-    controller: "dispController" })
+ .state('forgotPwd',{
+    url:'/forgotPwd',
+    templateUrl: 'app/modules/users/forgotPwd.html',
+    controller: "forgotPwdCtrl" })
 
- .state('search',{
-    url:'/search',
-    templateUrl: 'app/search.html',
-    controller: 'searchController'})
+ .state('createAccount',{
+    url:'/createAccount',
+    templateUrl: 'app/modules/users/createAccount.html',
+    controller: 'createAccountCtrl'})
 
  .state('update',{
     url:'/update',
     templateUrl: 'app/update.html',
     controller: "updateController"})
     
-  $urlRouterProvider.otherwise('/emp');
+  $urlRouterProvider.otherwise('/login');
 }]);
 
 app.controller("MainCtrl", ['$scope', '$http', '$window', function ($scope,$http,$window) {
