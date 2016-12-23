@@ -1,28 +1,28 @@
-var app = angular.module('app', ['ui.router'])
+var app = angular.module('oltiv', ['ui.router'])
 
 app.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider,$stateProvider)
  {
    $stateProvider
  .state('emp',{
    url:'/emp',
-   templateUrl:'www/employee.html',
+   templateUrl:'app/employee.html',
    controller: "MainCtrl" })
 
  .state('disp',{
     url:'/disp',
-    templateUrl: 'www/display.html',
+    templateUrl: 'app/display.html',
     controller: "dispController" })
 
  .state('search',{
     url:'/search',
-    templateUrl: 'www/search.html',
+    templateUrl: 'app/search.html',
     controller: 'searchController'})
 
  .state('update',{
     url:'/update',
-    templateUrl: 'www/update.html',
+    templateUrl: 'app/update.html',
     controller: "updateController"})
-
+    
   $urlRouterProvider.otherwise('/emp');
 }]);
 

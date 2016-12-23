@@ -11,7 +11,7 @@ grunt.initConfig({
 	},
 	mytarget: {
  	 files: {
-   	  'compress/ugliJS2.js':['www/**.js']
+   	  'compress/ugliJS2.js':['app/**.js']
 	  }
 	}
   },
@@ -22,7 +22,7 @@ grunt.initConfig({
     },
     app: {
         files: {
-         'www/author.js': ['www/author.js']
+         'app/author.js': ['app/author.js']
         }
     }
 },
@@ -37,7 +37,7 @@ grunt.initConfig({
      },
      mytarget: {
 	files: {
- 	  'compress/htmlMin.html':['www/**.html']
+ 	  'compress/htmlMin.html':['app/**.html']
       }
     }
   },
@@ -45,7 +45,7 @@ grunt.initConfig({
   watch: {
        options:{livereload:true},
 
-       files:['www/*.html','www/*.js'],
+       files:['app/*.html','app/*.js','app/modules/**'],
        tasks:['build']
   },
 

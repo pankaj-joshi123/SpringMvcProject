@@ -33,9 +33,18 @@ task createWar(type: War,dependsOn:runGrunt) {
         into '/WEB-INF/'
     }
 
-    from('./www/www') {
+    from('./www/app') {
         include '*.html'
-        into '/www'
+        into '/app'
+    }
+
+    from('./www/app') {
+        include '**'
+        into '/app'
+    }
+
+    from('./www') {
+        include 'bootstrap/'
     }
 
     from('./www/compress') {
