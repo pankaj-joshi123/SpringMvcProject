@@ -54,6 +54,7 @@ task createWar(type: War,dependsOn:runGrunt) {
 
     from('./www') {
         include 'index.html'
+        include 'police.png'
     }
 
     from('./') {

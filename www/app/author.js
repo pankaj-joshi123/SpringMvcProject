@@ -1,7 +1,9 @@
 var app = angular.module('oltiv', [
 'ui.router',
 'oltiv.login',
-'oltiv.forgotPwd'
+'oltiv.forgotPwd',
+'oltiv.createAccount',
+'oltiv.userOverview'
 ]);
 
 app.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider,$stateProvider)
@@ -22,10 +24,12 @@ app.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider
     templateUrl: 'app/modules/users/createAccount.html',
     controller: 'createAccountCtrl'})
 
- .state('update',{
-    url:'/update',
-    templateUrl: 'app/update.html',
-    controller: "updateController"})
+ .state('userOverview',{
+    url:'/overview',
+    templateUrl: 'app/modules/users/userOverview.html',
+    controller: "overViewController",
+    params: {'empObject':null}
+    })
     
   $urlRouterProvider.otherwise('/login');
 }]);

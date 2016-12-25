@@ -25,4 +25,16 @@
     </addColumn>
   </changeSet>
 
+  <changeSet id="pjoshi" author="adding column username pwd email">
+    <addColumn tableName="User">
+      <column name="loginName" type="varchar(255)"></column>
+    </addColumn>
+    <addColumn tableName="User">
+      <column name="emailid" type="varchar(255)"></column>
+    </addColumn>
+    <addColumn tableName="User">
+      <column name="isPolice" type="varchar(25)"></column>
+    </addColumn>
+  </changeSet>
+
 </databaseChangeLog>

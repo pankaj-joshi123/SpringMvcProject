@@ -27,4 +27,10 @@ public class UserServiceImpl implements UserService {
     public void saveUser() {
         masterDao.getUserDao().saveUser(abc);
     }
+
+    @Override
+    @Transactional
+    public void createUser(User user) {
+        masterDao.getUserDao().createUser(user);
+    }
 }

@@ -2,19 +2,19 @@
 <div class="form-group">
     <div class="col-xs-4">
         <label for="FName">First Name</label>
-        <input type="text" class="form-control" id="FName">
+        <input type="text" class="form-control" id="FName" ng-model="name">
 
         <label for="LName">Last Name</label>
-        <input type="text" class="form-control" id="LName">
+        <input type="text" class="form-control" id="LName" ng-model="lastname">
 
         <label for="LoginName">Login Name</label>
-        <input type="text" class="form-control" id="LoginName">
+        <input type="text" class="form-control" id="LoginName" ng-model="loginName">
 
         <label for="pwd">Password:</label>
         <input type="password" class="form-control" id="pwd">
 
         <label for="EmailId">EmailId</label>
-        <input type="text" class="form-control" id="EmailId">
+        <input type="text" class="form-control" id="EmailId" ng-model="email">
         <br><br>
         <label>Is A Police Officer</label>
         <div class="radio-inline">
@@ -24,6 +24,7 @@
             <label><input type="radio" name="optradio">No</label>
         </div>
         <br><br>
-        <button type="button" class="btn btn-success">Submit</button>
+        <button type="button" class="btn btn-success" ng-click="add()">Submit</button>
     </div>
 </div>
+{{chutiya}}

@@ -7,4 +7,6 @@ import oltiv.business.User;
  */
 public interface UserDao {
     public void saveUser(User abc);
+
+    public void createUser(User user);
 }

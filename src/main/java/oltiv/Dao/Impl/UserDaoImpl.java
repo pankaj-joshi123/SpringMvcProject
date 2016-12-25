@@ -21,18 +21,11 @@ public class UserDaoImpl implements UserDao {
     public void saveUser(User abc) {
         Session session=sessionFactory.getCurrentSession();
         session.saveOrUpdate(abc);
-        System.out.print("sesssion"+"\n\n\n\n\n\n"+session+"\n\n\n\n\n\n");
-        /*Session session = sessionFactory.op   enSession();
-        Transaction tx = null;
-        try{
-            tx = session.beginTransaction();
-            session.save(abc);
-            tx.commit();
-        }catch (HibernateException e) {
-            if (tx!=null) tx.rollback();
-            e.printStackTrace();
-        }finally {
-            session.close();
-        }*/
+    }
+
+    @Override
+    public void createUser(User user) {
+        Session session=sessionFactory.getCurrentSession();
+        session.saveOrUpdate(user);
     }
 }

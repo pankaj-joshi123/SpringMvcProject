@@ -13,6 +13,8 @@
       </id>
       <property name="age" column="age" type="int"/>
       <property name="name" column="name" type="string"/>
-      <property name="lastname" column="lastName" type="string"/>
+      <property name="lastname" column="lastname" type="string"/>
+      <property name="loginName" column="loginName" type="string"/>
+      <property name="email" column="emailid" type="string"/>
    </class>
 </hibernate-mapping>
