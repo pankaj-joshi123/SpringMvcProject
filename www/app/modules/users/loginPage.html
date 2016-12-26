@@ -3,14 +3,16 @@
 <div class="form-group">
     <div class="col-xs-4">
     <label for="usr">User Name:</label>
-    <input type="text" class="form-control" id="usr">
+    <input type="text" class="form-control" id="usr" ng-model="userName">
 
     <label for="pwd">Password:</label>
-    <input type="password" class="form-control" id="pwd">
+    <input type="password" class="form-control" id="pwd" ng-model="password">
     </div>
 </div>
 <br><br><br><br><br><br><br>
-<button type="button" class="btn btn-default">Login</button>
+<button type="button" class="btn btn-default" ng-click="login()">Login</button>
 <button type="button" class="btn btn-danger" ui-sref="forgotPwd">Forgot Password</button>
 
 <h2>Not have account, <a ui-sref="createAccount">Please sign in to Create Account</a></h2>
+
+{{masti}}

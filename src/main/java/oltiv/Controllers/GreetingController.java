@@ -14,17 +14,25 @@ public class GreetingController {
     @Autowired
     UserService userSvc;
 
-    @RequestMapping(value="/all", method =RequestMethod.GET)
+    @RequestMapping(value="/all", method=RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     public void greeting1() {
         userSvc.saveUser();
     }
 
-    @RequestMapping(value="/create", method =RequestMethod.POST)
+    @RequestMapping(value="/create", method=RequestMethod.POST)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public void createUser(@RequestBody User userDetails) {   ///Recieving details from front end
         userSvc.createUser(userDetails);
+    }
+
+    @RequestMapping(value="/getUserByLoginName/{name}",method=RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public User getUserByLoginName(@PathVariable String  name) {  //return type is complete user object for further uses
+        User user= userSvc.getUserByLoginName(name);
+        return user;
     }
 }
 

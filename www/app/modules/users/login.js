@@ -1,6 +1,12 @@
 angular.module('oltiv.login',[])
-.controller('loginCtrl', function($scope){
+.controller('loginCtrl', function($scope,$http){
 
- $scope.chutiya='kaise bhoola bhai chutiya h kya?';
-
+ $scope.login = function() {
+         $http.get("http://localhost:8080/openspec-1/masti/oltiv/greeting/getUserByLoginName/"+$scope.userName)
+          			.success(function(data) {
+          				  console.log(data);
+          				  $scope.masti=data;
+          			}
+         );
+ }
 })

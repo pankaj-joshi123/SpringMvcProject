@@ -9,4 +9,6 @@ public interface UserDao {
     public void saveUser(User abc);
 
     public void createUser(User user);
+
+    public User getUserByLoginName(String name);
 }

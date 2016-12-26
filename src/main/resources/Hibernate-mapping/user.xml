@@ -16,5 +16,12 @@
       <property name="lastname" column="lastname" type="string"/>
       <property name="loginName" column="loginName" type="string"/>
       <property name="email" column="emailid" type="string"/>
+
+      <!--sql-query name="getUserByLoginName">
+         select
+            distinct User
+         where User.loginName=loginName
+      </sql-query-->
+
    </class>
 </hibernate-mapping>

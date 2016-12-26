@@ -33,4 +33,11 @@ public class UserServiceImpl implements UserService {
     public void createUser(User user) {
         masterDao.getUserDao().createUser(user);
     }
+
+    @Override
+    @Transactional
+    public User getUserByLoginName(String name) {
+        User user=masterDao.getUserDao().getUserByLoginName(name);
+        return user;
+    }
 }

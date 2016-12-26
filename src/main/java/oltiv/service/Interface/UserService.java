@@ -10,4 +10,6 @@ public interface UserService {
     public void saveUser();
 
     public void createUser(User user);
+
+    public User getUserByLoginName(String name);
 }
