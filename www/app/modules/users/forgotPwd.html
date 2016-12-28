@@ -2,12 +2,9 @@
 <div class="form-group">
     <div class="col-xs-4">
         <label for="GmailId">Gmail Id:</label>
-        <input type="text" class="form-control" id="GmailId">
-
-        <label for="pwd">Password:</label>
-        <input type="password" class="form-control" id="pwd">
+        <input type="text" class="form-control" id="GmailId" ng-model="gmailId">
     </div>
 </div>
-<br><br><br><br><br><br><br><br><br>
-<button type="button" class="btn btn-danger" ui-sref="login">Click to Send New Pwd to Gmail</button>
+<br><br><br><br><br>
+<button type="button" class="btn btn-danger" ng-click="sendNewPasswordToMail()">Click to Send New Pwd to Gmail</button>
 {{chutiya}}

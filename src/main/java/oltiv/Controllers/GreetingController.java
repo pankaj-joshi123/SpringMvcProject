@@ -1,6 +1,7 @@
 package oltiv.Controllers;
 
 import oltiv.business.User;
+import oltiv.service.Impl.EmailServiceImpl;
 import oltiv.service.Interface.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -33,6 +34,13 @@ public class GreetingController {
     public User getUserByLoginName(@PathVariable String  name) {  //return type is complete user object for further uses
         User user= userSvc.getUserByLoginName(name);
         return user;
+    }
+
+    @RequestMapping(value="/forgotPassword/{gmailId}",method=RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public void sendingMailToGmailId(@PathVariable String gmailId) {
+        EmailServiceImpl.main();
     }
 }
 
