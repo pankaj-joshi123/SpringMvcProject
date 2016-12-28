@@ -8,9 +8,12 @@ import javax.mail.internet.*;
  * Created by pankaj on 27/12/16.
  */
 public class EmailServiceImpl {
-    public static void main() {
 
-        String to = "pankaj.girish.joshi@gmail.com";
+    public static void main(String gmailId) {
+        String to = gmailId;
+
+        System.out.print("\n\n\n\n\n\n\n\n"+gmailId+"\n\n\n\n\n\n");
+
         String from = "pankaj19nov@gmail.com";
         String password="9610939634";
         String host = "smtp.gmail.com";
@@ -34,8 +37,8 @@ public class EmailServiceImpl {
             message.setFrom(new InternetAddress(from));
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
 
-            message.setSubject("Masti baap ye le tera email");
-            message.setText("Masti baap kya email banaya hai tune gand faad di BC");
+            message.setSubject("Police Department Reset Password");
+            message.setText("Your OTP for resetting password is '612493'");
 
             Transport.send(message);
         }catch (MessagingException mex) {

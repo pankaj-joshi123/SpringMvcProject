@@ -36,11 +36,12 @@ public class GreetingController {
         return user;
     }
 
-    @RequestMapping(value="/forgotPassword/{gmailId}",method=RequestMethod.GET)
+    @RequestMapping(value="/forgotPassword/{gmailId:.+}",method=RequestMethod.GET)  //spring truncates the last dot because it consider it as a file .xml .json
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public void sendingMailToGmailId(@PathVariable String gmailId) {
-        EmailServiceImpl.main();
+
+        EmailServiceImpl.main(gmailId);
     }
 }
 
