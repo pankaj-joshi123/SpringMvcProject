@@ -37,4 +37,10 @@
     </addColumn>
   </changeSet>
 
+  <changeSet id="Adding Password Column which was left" author="pjoshi">
+    <addColumn tableName="User">
+      <column name="password" type="varchar(255)"></column>
+    </addColumn>
+  </changeSet>
+
 </databaseChangeLog>
