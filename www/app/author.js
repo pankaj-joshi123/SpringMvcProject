@@ -5,7 +5,9 @@ var app = angular.module('oltiv', [
 'oltiv.forgotPwd',
 'oltiv.createAccount',
 'oltiv.userOverview',
-'oltiv.home'
+'oltiv.home',
+'oltiv.register',
+'oltiv.viewAllUsers'
 ]);
 
 app.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider,$stateProvider,$cookieStore)
@@ -41,6 +43,18 @@ app.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider
      templateUrl: 'app/modules/common/home.html',
      controller: 'homeCtrl'
     })
-    
+
+ .state('register',{
+      url:'/register',
+      templateUrl: 'app/modules/registrations/register.html',
+      controller: 'registrationCtrl'
+     })
+
+ .state('allUsers',{
+       url:'/allUsers',
+       templateUrl: 'app/modules/registrations/viewAllUsers.html',
+       controller: 'usersListCtrl'
+      })
+
   $urlRouterProvider.otherwise('/home');
 }]);

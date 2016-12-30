@@ -5,6 +5,8 @@ import oltiv.business.User;
 import oltiv.service.Interface.UserService;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * Created by pankaj on 26/11/16.
  */
@@ -39,5 +41,12 @@ public class UserServiceImpl implements UserService {
     public User getUserByLoginName(String name) {
         User user=masterDao.getUserDao().getUserByLoginName(name);
         return user;
+    }
+
+    @Override
+    @Transactional
+    public List<User> getAllUsers() {
+        List<User> users=masterDao.getUserDao().getAllUsers();
+        return users;
     }
 }

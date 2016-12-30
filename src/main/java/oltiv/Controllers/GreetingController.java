@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/greeting")
 public class GreetingController {
@@ -42,6 +44,14 @@ public class GreetingController {
     public void sendingMailToGmailId(@PathVariable String gmailId) {
 
         EmailServiceImpl.main(gmailId);
+    }
+
+    @RequestMapping(value="/getAllUsers",method=RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public List<User> viewAllUsers() {  ///Returns complete list of all the Users in the Police Department
+        List<User> users= userSvc.getAllUsers();
+        return users;
     }
 }
 

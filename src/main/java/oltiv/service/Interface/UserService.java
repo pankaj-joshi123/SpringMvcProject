@@ -3,6 +3,8 @@ package oltiv.service.Interface;
 import oltiv.business.User;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * Created by pankaj on 26/11/16.
  */
@@ -12,4 +14,7 @@ public interface UserService {
     public void createUser(User user);
 
     public User getUserByLoginName(String name);
+
+    @Transactional
+    List<User> getAllUsers();
 }
