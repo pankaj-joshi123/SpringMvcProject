@@ -1,9 +1,8 @@
 angular.module('oltiv.home',[])
 .controller('homeCtrl', function($scope,$http,$state,$cookieStore){
 
-    //$cookieStore.put('loggedIN','true');
     var isLoggedIn = $cookieStore.get('loggedIN');
-
+    isLoggedIn=true;   //////////////////////////////////////////////////////to be commented
     if(isLoggedIn)
     {
         console.log("bhai tu logged in hai tujhe login ki jarurat nahi");
