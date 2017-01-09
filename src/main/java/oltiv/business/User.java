@@ -1,7 +1,5 @@
 package oltiv.business;
 
-import oltiv.Dao.Interface.MasterDao;
-
 public class User {
     int id;
     int age;
@@ -38,6 +36,12 @@ public class User {
     public String getPassword() {return password;}
     public void setPassword(String password) {this.password = password;}
 
-
-
+    public void makeUser(String[] object) {
+        this.setAge(Integer.parseInt(object[0]));
+        this.setName(object[1]);
+        this.setLastname(object[2]);
+        this.setLoginName(object[3]);
+        this.setEmail(object[4]);
+        this.setPassword(object[5]);
+    }
 }

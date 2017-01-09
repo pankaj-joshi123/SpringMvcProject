@@ -15,6 +15,7 @@ public interface UserService {
 
     public User getUserByLoginName(String name);
 
-    @Transactional
-    List<User> getAllUsers();
+    public List<User> getAllUsers();
+
+    public void addMultipleUsers(String[] details);
 }

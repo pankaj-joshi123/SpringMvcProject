@@ -49,4 +49,12 @@ public class UserServiceImpl implements UserService {
         List<User> users=masterDao.getUserDao().getAllUsers();
         return users;
     }
+
+    @Override
+    @Transactional
+    public void addMultipleUsers(String[] details) {
+        User newUser= new User();
+        newUser.makeUser(details);
+        createUser(newUser);
+    }
 }
