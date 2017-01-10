@@ -26,4 +26,7 @@ $http({
     });
     }
 
+    $scope.showUserOverview=function(user) {
+		$state.go('userOverview',{'empObject':user});
+    }
 })

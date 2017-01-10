@@ -1,12 +1,30 @@
-This is the list of all the Users Present in the Police Station
-<ul>
-    <li ng-repeat="user in users">
-        {{user.name}}
-        {{user.lastname}}
-        {{user.loginName}}
-        {{user.email}}
-    </li>
-</ul>
-
+<H2>This is the list of all the Users Present in the Police Station</H2>
 <input type="file">
 <button type="button" class="btn btn-danger" ng-click="uploadFile()">Bulk Upload</button><br>
+
+<style style="text/css">
+  	.hoverTable{
+		width:100%;
+		border-collapse:collapse;
+	}
+	.hoverTable td{
+		padding:7px; border:#4e95f4 1px solid;
+	}
+	/* Define the default color for all the table rows */
+	.hoverTable tr{
+		background: skyblue;
+	}
+	/* Define the hover highlight color for the table row */
+    .hoverTable tr:hover {
+          background-color: white;
+    }
+</style>
+
+<table class="hoverTable">
+    <tr>
+        <td>First Name</td><td>Last Name</td><td>Login Name</td><td>Email Id</td>
+    </tr>
+    <tr ng-repeat="user in users" ng-click="showUserOverview(user)">
+        <td>{{user.name}}</td><td>{{user.lastname}}</td><td>{{user.loginName}}</td><td>{{user.email}}</td>
+    </tr>
+</table>
