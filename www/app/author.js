@@ -7,7 +7,8 @@ var app = angular.module('oltiv', [
 'oltiv.userOverview',
 'oltiv.home',
 'oltiv.register',
-'oltiv.viewAllUsers'
+'oltiv.viewAllUsers',
+'oltiv.containerDim'
 ]);
 
 app.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider,$stateProvider,$cookieStore)
@@ -55,6 +56,12 @@ app.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider
        templateUrl: 'app/modules/registrations/viewAllUsers.html',
        controller: 'usersListCtrl'
       })
+
+ .state('containerDimension',{
+        url:'/containerDimension',
+        templateUrl: 'app/modules/containers/containerDimension.html',
+        controller: 'containerDimCtrl'
+       })
 
   $urlRouterProvider.otherwise('/home');
 }]);

@@ -1,0 +1,17 @@
+<h1>Inside Container</h1>
+<div class="form-group">
+    <div class="col-xs-1">
+        <label for="Rows">Rows</label>
+        <input type="text" class="form-control" id="Rows" ng-model="rows">
+
+        <label for="Column">Last Name</label>
+        <input type="text" class="form-control" id="Column" ng-model="columns">
+        <button type="button" class="btn btn-success" ng-click="addMasti()">Submit</button>
+    </div>
+</div>
+
+<table class="hoverTable">
+    <tr ng-repeat="i in getNumber(number) track by $index"><span></span>
+        <td ng-repeat="j in getNumber2(number2) track by $index"><span></span><button type="button" class="btn btn-success" ng-click="addMasti()">Submit</button>
+    </tr>
+</table>
