@@ -7,4 +7,6 @@ public interface MasterDao {
     public UserDao getUserDao();
 
     public PraptiDao getPraptiDao();
+
+    public HostelDao getHostelDao();
 }

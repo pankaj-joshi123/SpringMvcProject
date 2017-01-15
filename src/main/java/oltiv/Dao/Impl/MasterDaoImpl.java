@@ -1,5 +1,6 @@
 package oltiv.Dao.Impl;
 
+import oltiv.Dao.Interface.HostelDao;
 import oltiv.Dao.Interface.MasterDao;
 import oltiv.Dao.Interface.PraptiDao;
 import oltiv.Dao.Interface.UserDao;
@@ -27,4 +28,12 @@ public class MasterDaoImpl implements MasterDao {
         praptiDao.setSessionFactory(sessionFactory);    ///master will pass session factory to whose dao is called
         return praptiDao;
     }
+
+    @Override
+    public HostelDao getHostelDao() {
+        HostelDaoImpl hostelDao=new HostelDaoImpl();
+        hostelDao.setSessionFactory(sessionFactory);    ///master will pass session factory to whose dao is called
+        return hostelDao;
+    }
+
 }

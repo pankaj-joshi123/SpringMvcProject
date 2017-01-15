@@ -43,4 +43,14 @@
     </addColumn>
   </changeSet>
 
+  <changeSet author="pjoshi" id="Hostel table" failOnError="true">
+    <createTable tableName="Hostel">
+      <column name="id" type="int" autoIncrement="${autoIncrement}">
+        <constraints primaryKey="true" nullable="false"/>
+      </column>
+
+      <column name="hostelName" type="varchar(255)">
+      </column>
+    </createTable>
+  </changeSet>
 </databaseChangeLog>

@@ -32,12 +32,17 @@
      <property name="masterDao" ref="MasterDao"/>
   </bean>
 
+   <bean id="hostelSvc" class="oltiv.service.Impl.HostelServiceImpl">
+       <property name="masterDao" ref="MasterDao"/>
+   </bean>
+
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="myDataSource" />
         <property name="mappingResources">
             <list>
                 <value>Hibernate-mapping/user.xml</value>    <!--just provide location-->
                 <value>Hibernate-mapping/prapti.xml</value>
+                <value>Hibernate-mapping/hostel.xml</value>
             </list>
         </property>
         <property name="hibernateProperties">

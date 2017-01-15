@@ -8,7 +8,10 @@ var app = angular.module('oltiv', [
 'oltiv.home',
 'oltiv.register',
 'oltiv.viewAllUsers',
-'oltiv.containerDim'
+'oltiv.containerDim',
+'oltiv.hostelList',
+'oltiv.createHostel',
+'oltiv.hostelOverview'
 ]);
 
 app.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider,$stateProvider,$cookieStore)
@@ -62,6 +65,26 @@ app.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider
         templateUrl: 'app/modules/containers/containerDimension.html',
         controller: 'containerDimCtrl'
        })
+
+
+ .state('hostelList',{
+        url:'/hostelList',
+        templateUrl: 'app/modules/containers/hostelList.html',
+        controller: 'hostelListCtrl'
+       })
+
+ .state('createHostel',{
+         url:'/createHostel',
+         templateUrl: 'app/modules/containers/createHostel.html',
+         controller: 'createHostelCtrl'
+       })
+
+ .state('hostelOverview',{
+     url:'/hostelOverview',
+     templateUrl: 'app/modules/containers/hostelOverview.html',
+     controller: "hostelOverViewController",
+     params: {'hostelObject':null}
+     })
 
   $urlRouterProvider.otherwise('/home');
 }]);
