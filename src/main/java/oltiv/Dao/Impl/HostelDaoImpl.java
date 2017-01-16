@@ -2,6 +2,7 @@ package oltiv.Dao.Impl;
 
 import oltiv.Dao.Interface.HostelDao;
 import oltiv.business.Hostel;
+import oltiv.business.HostelFlank;
 import oltiv.business.Prapti;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
@@ -32,6 +33,22 @@ public class HostelDaoImpl implements HostelDao {
     public void createHostel(Hostel hostel) {
         Session session=sessionFactory.getCurrentSession();
         session.saveOrUpdate(hostel);
+    }
+
+    @Override
+    public void addFlankToHostel(HostelFlank flank) {
+        Session session=sessionFactory.getCurrentSession();
+        session.saveOrUpdate(flank);
+    }
+
+    @Override
+    public List<HostelFlank> getHostelFlank(int id) {
+        Session session=sessionFactory.getCurrentSession();
+        String sql = "SELECT * FROM Hostel_flank where hostelId="+id;
+        SQLQuery query = session.createSQLQuery(sql);
+        query.addEntity(HostelFlank.class);
+        List<HostelFlank> results = query.list();
+        return results;
     }
 
 }

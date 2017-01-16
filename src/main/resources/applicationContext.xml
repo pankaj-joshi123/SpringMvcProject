@@ -43,6 +43,7 @@
                 <value>Hibernate-mapping/user.xml</value>    <!--just provide location-->
                 <value>Hibernate-mapping/prapti.xml</value>
                 <value>Hibernate-mapping/hostel.xml</value>
+                <value>Hibernate-mapping/hostel-flank.xml</value>
             </list>
         </property>
         <property name="hibernateProperties">

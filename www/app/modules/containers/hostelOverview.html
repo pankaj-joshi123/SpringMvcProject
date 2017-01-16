@@ -1,8 +1,34 @@
 <h3>Hi your Hostel has been Created Successfully Below are the details of the Hostel</h3>
+<button type="button" class="btn btn-danger" ng-click="createFlank(hostel)">Create Hostel Flanks</button>
+
+<style style="text/css">
+  	.hoverTable{
+		width:100%;
+		border-collapse:collapse;
+	}
+	.hoverTable td{
+		padding:7px; border:#4e95f4 1px solid;
+	}
+	/* Define the default color for all the table rows */
+	.hoverTable tr{
+		background: white;
+	}
+	/* Define the hover highlight color for the table row */
+    .hoverTable tr:hover {
+          background-color: skyblue;
+    }
+</style>
 
 <div class="form-group">
     <div class="col-xs-4">
         <label>First Name</label>{{hostel.hostelName}}<br>
     </div>
 </div>
-{{chutiya}}
+<table class="hoverTable">
+    <tr>
+        <td>Flank Names For the Hostel</td>
+    </tr>
+    <tr ng-repeat="flank in flanks" ng-click="showFlankOverview(flank)">
+        <td>{{flank.flankName}}</td>
+    </tr>
+</table>

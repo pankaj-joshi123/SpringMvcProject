@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name="oltiv.business.HostelFlank" table="Hostel_flank">
+      <meta attribute="class-description">
+         This class contains the Hostel detail.
+      </meta>
+      <id name="id" type="int" column="id">
+         <generator class="increment"/>
+      </id>
+      <property name="flankName" column="flankName" type="string"/>
+      <property name="hostelId" column="hostelId" type="int"/>
+   </class>
+</hibernate-mapping>

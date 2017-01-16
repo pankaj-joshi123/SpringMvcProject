@@ -53,4 +53,34 @@
       </column>
     </createTable>
   </changeSet>
+
+  <changeSet author="pjoshi" id="Hostel flank table" failOnError="true">
+    <createTable tableName="Hostel_flank">
+      <column name="id" type="int" autoIncrement="${autoIncrement}">
+        <constraints primaryKey="true" nullable="false"/>
+      </column>
+
+      <column name="flankName" type="varchar(255)">
+      </column>
+
+      <column name="hostelId" type="int">
+      </column>
+    </createTable>
+  </changeSet>
+
+  <changeSet author="pankajJoshi" id="addNotNullConstraint-to-hostelId in flank table">
+    <addNotNullConstraint columnDataType="int"
+                          columnName="hostelId"
+                          tableName="Hostel_flank"/>
+  </changeSet>
+
+  <changeSet author="pjoshi" id="Add FK to Flank Table">
+    <addForeignKeyConstraint
+            constraintName="FK_FLANK_BY_HOSTEL"
+            baseTableName="Hostel_flank"
+            baseColumnNames="hostelId"
+            referencedTableName="Hostel"
+            referencedColumnNames="id"/>
+  </changeSet>
+
 </databaseChangeLog>

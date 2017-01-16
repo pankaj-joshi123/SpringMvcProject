@@ -1,6 +1,7 @@
 package oltiv.Controllers;
 
 import oltiv.business.Hostel;
+import oltiv.business.HostelFlank;
 import oltiv.service.Interface.HostelService;
 import oltiv.service.Interface.PraptiService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,5 +31,19 @@ public class hostelController {
     @ResponseBody
     public void createHostel(@RequestBody Hostel hostelDetail) {   ///Recieving details from front end
         hostelSvc.createHostel(hostelDetail);
+    }
+
+    @RequestMapping(value="/createFlank", method=RequestMethod.POST)
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public void createFlank(@RequestBody HostelFlank flankDetail) {   ///Recieving details from front end
+        hostelSvc.createFlank(flankDetail);
+    }
+
+    @RequestMapping(value="/getHostelFlanks/{hostelId}",method=RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public List<HostelFlank> getHostelFlanks(@PathVariable int hostelId) {
+        return hostelSvc.getHostelsFlank(hostelId);
     }
 }
