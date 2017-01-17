@@ -8,7 +8,13 @@
 <div class="form-group">
     <div class="col-xs-4">
         <label for="FName">Flank Name</label>
-        <input type="text" class="form-control" id="FName" ng-model="name">
+        <input type="int" class="form-control" id="FName" ng-model="name">
+        <label for="Rooms">No of rooms</label>
+        <input type="int" class="form-control" id="Rooms" ng-model="room">
+        <label for="Columns">No of Columns</label>
+        <input type="int" class="form-control" id="Columns" ng-model="cols">
+        <label for="StudentPerRoom">StudentPerRoom</label>
+        <input type="int" class="form-control" id="StudentPerRoom" ng-model="student">
         <br><br>
         <button type="button" class="btn btn-success" ng-click="add()">Submit</button>
     </div>

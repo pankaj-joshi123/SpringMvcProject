@@ -13,5 +13,8 @@
       </id>
       <property name="flankName" column="flankName" type="string"/>
       <property name="hostelId" column="hostelId" type="int"/>
+      <property name="noOfRooms" column="NoOfRooms" type="int"/>
+      <property name="columns" column="columns" type="int"/>
+      <property name="studenPerRoom" column="studentPerRoom" type="int"/>
    </class>
 </hibernate-mapping>

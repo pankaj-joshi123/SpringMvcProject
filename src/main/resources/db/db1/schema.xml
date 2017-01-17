@@ -83,4 +83,19 @@
             referencedColumnNames="id"/>
   </changeSet>
 
+  <changeSet id="Adding Room and Student Per Room columns" author="pjoshi">
+    <addColumn tableName="Hostel_flank">
+      <column name="NoOfRooms" type="int"></column>
+    </addColumn>
+    <addColumn tableName="Hostel_flank">
+      <column name="studentPerRoom" type="int"></column>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="Adding Column in the Hostel Flank for 2D view" author="pjoshi">
+    <addColumn tableName="Hostel_flank">
+      <column name="columns" type="int"></column>
+    </addColumn>
+  </changeSet>
+
 </databaseChangeLog>
