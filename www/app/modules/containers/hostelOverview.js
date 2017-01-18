@@ -17,4 +17,8 @@ angular.module('oltiv.hostelOverview',[])
   $scope.createFlank=function(hostel) {
   		$state.go('createFlank',{'hostelObject':$scope.hostel});
       }
+
+  $scope.showFlankOverview=function(flank) {
+        $state.go('flankOverview',{'flankObject':flank})
+  }
 })

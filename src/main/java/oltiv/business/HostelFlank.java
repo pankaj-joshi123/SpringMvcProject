@@ -7,6 +7,7 @@ public class HostelFlank {
     int noOfRooms;
     int columns;
     int studenPerRoom;
+    int staringRoomNo;
 
     public int getColumns() {
         return columns;
@@ -48,5 +49,13 @@ public class HostelFlank {
 
     public void setHostelId(int hostelId) {
         this.hostelId = hostelId;
+    }
+
+    public int getStaringRoomNo() {
+        return staringRoomNo;
+    }
+
+    public void setStaringRoomNo(int staringRoomNo) {
+        this.staringRoomNo = staringRoomNo;
     }
 }

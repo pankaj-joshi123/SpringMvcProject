@@ -44,6 +44,7 @@
                 <value>Hibernate-mapping/prapti.xml</value>
                 <value>Hibernate-mapping/hostel.xml</value>
                 <value>Hibernate-mapping/hostel-flank.xml</value>
+                <value>Hibernate-mapping/room.xml</value>
             </list>
         </property>
         <property name="hibernateProperties">

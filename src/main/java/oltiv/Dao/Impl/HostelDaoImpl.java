@@ -1,6 +1,7 @@
 package oltiv.Dao.Impl;
 
 import oltiv.Dao.Interface.HostelDao;
+import oltiv.business.FlankRooms;
 import oltiv.business.Hostel;
 import oltiv.business.HostelFlank;
 import oltiv.business.Prapti;
@@ -38,7 +39,20 @@ public class HostelDaoImpl implements HostelDao {
     @Override
     public void addFlankToHostel(HostelFlank flank) {
         Session session=sessionFactory.getCurrentSession();
-        session.saveOrUpdate(flank);
+        session.saveOrUpdate(flank);                                 ///as the flank is created we will create the rooms fot this flank also
+
+        int totalrooms=flank.getNoOfRooms()*flank.getColumns();
+        int startingRoomNo=flank.getStaringRoomNo();
+
+        for(int i=0;i<totalrooms;i++)
+        {
+            FlankRooms room= new FlankRooms();
+            room.setRoomLabel("Room:"+String.valueOf(startingRoomNo));
+            room.setFlankName(flank.getFlankName());
+            startingRoomNo++;
+            System.out.print("\n\n\n\n\n\n\n\n"+room.getRoomLabel()+"\n\n\nsaving room\n\n\n\n\n");
+            session.saveOrUpdate(room);                                 ////saving rooms by increasing the room numbers
+        }
     }
 
     @Override

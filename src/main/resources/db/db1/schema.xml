@@ -98,4 +98,32 @@
     </addColumn>
   </changeSet>
 
+  <changeSet author="pjoshi" id="Room table" failOnError="true">
+    <createTable tableName="Room">
+      <column name="id" type="int" autoIncrement="${autoIncrement}">
+        <constraints primaryKey="true" nullable="false"/>
+      </column>
+
+      <column name="roomLabel" type="varchar(255)">
+      </column>
+
+      <column name="noofStudentsPresent" type="int">
+      </column>
+
+      <column name="flankid" type="int">
+      </column>
+    </createTable>
+  </changeSet>
+
+  <changeSet author="pjoshi" id="Dropping Flankid">
+    <dropColumn columnName="flankid"
+                tableName="Room"/>
+  </changeSet>
+
+  <changeSet id="Adding Flank Name instead of flank ID" author="pjoshi">
+    <addColumn tableName="Room">
+      <column name="flankName" type="varchar(255)"></column>
+    </addColumn>
+  </changeSet>
+
 </databaseChangeLog>
