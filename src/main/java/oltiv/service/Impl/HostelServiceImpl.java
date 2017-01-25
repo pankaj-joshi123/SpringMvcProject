@@ -1,6 +1,7 @@
 package oltiv.service.Impl;
 
 import oltiv.Dao.Interface.MasterDao;
+import oltiv.business.FlankRooms;
 import oltiv.business.Hostel;
 import oltiv.business.HostelFlank;
 import oltiv.service.Interface.HostelService;
@@ -41,5 +42,12 @@ public class HostelServiceImpl implements HostelService {
     public List<HostelFlank> getHostelsFlank(int id) {
         List<HostelFlank> flanks=masterDao.getHostelDao().getHostelFlank(id);
         return flanks;
+    }
+
+    @Override
+    @Transactional
+    public List<FlankRooms> getFlankRooms(String flankName) {
+        List<FlankRooms> rooms=masterDao.getHostelDao().getFlankRooms(flankName);
+        return rooms;
     }
 }

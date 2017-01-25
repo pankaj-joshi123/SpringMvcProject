@@ -1,11 +1,21 @@
 <h1>This is the Flank We will add the hostels Shortly</h1>
-{{flank.flankName}}
-{{flank.noOfRooms}}
-{{flank.columns}}
-{{flank.studenPerRoom}}
 
-<table class="hoverTable">
+<!--table>
     <tr ng-repeat="i in getNumber(number) track by $index"><span></span>
-        <td ng-repeat="j in getNumber2(number2) track by $index"><span></span><button type="button" class="btn btn-success" ng-click="addMasti()">Submit</button>
+        <td ng-repeat="j in getNumber2(number2) track by $index"><span></span>{{room.roomLabel}}
+    </tr>
+</table-->
+
+<div class="form-group">
+    <div class="col-xs-4">
+        <label>Flank Name</label>{{flank.flankName}}<br>
+    </div>
+</div>
+<table class="hoverTable">
+    <tr>
+        <td>Room Names For the Flank {{flank.flankName}}</td>
+    </tr>
+    <tr ng-repeat="room in rooms" ng-click="showRoomOverview(room)">
+        <td><a>{{room.roomLabel}}</a></td>
     </tr>
 </table>

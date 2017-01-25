@@ -13,7 +13,8 @@ var app = angular.module('oltiv', [
 'oltiv.createHostel',
 'oltiv.hostelOverview',
 'oltiv.createFlank',
-'oltiv.flankOverview'
+'oltiv.flankOverview',
+'oltiv.roomOverview'
 ]);
 
 app.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider,$stateProvider,$cookieStore)
@@ -102,6 +103,15 @@ app.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider
       controller: "flankOverViewController",
       params: {'flankObject':null}
       })
+
+ .state('roomOverview',{
+       url:'/roomOverview',
+       templateUrl: 'app/modules/containers/roomOverView.html',
+       controller: "roomOverViewController",
+       params: {'roomObject':null,
+                'flankObject':null
+               }
+       })
 
   $urlRouterProvider.otherwise('/home');
 }]);

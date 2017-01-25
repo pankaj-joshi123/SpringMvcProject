@@ -1,5 +1,6 @@
 package oltiv.Dao.Interface;
 
+import oltiv.business.FlankRooms;
 import oltiv.business.Hostel;
 import oltiv.business.HostelFlank;
 import oltiv.business.Prapti;
@@ -17,4 +18,6 @@ public interface HostelDao {
     public void addFlankToHostel(HostelFlank flank);
 
     public List<HostelFlank> getHostelFlank(int id);
+
+    public List<FlankRooms> getFlankRooms(String flankName);
 }

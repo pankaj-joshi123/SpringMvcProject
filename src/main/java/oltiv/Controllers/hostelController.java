@@ -1,5 +1,6 @@
 package oltiv.Controllers;
 
+import oltiv.business.FlankRooms;
 import oltiv.business.Hostel;
 import oltiv.business.HostelFlank;
 import oltiv.service.Interface.HostelService;
@@ -45,5 +46,12 @@ public class hostelController {
     @ResponseBody
     public List<HostelFlank> getHostelFlanks(@PathVariable int hostelId) {
         return hostelSvc.getHostelsFlank(hostelId);
+    }
+
+    @RequestMapping(value="/getFlankRooms/{flankName}",method=RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public List<FlankRooms> getFlankRooms(@PathVariable String flankName) {
+        return hostelSvc.getFlankRooms(flankName);
     }
 }

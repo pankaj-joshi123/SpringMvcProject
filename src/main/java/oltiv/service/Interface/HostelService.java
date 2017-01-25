@@ -1,5 +1,6 @@
 package oltiv.service.Interface;
 
+import oltiv.business.FlankRooms;
 import oltiv.business.Hostel;
 import oltiv.business.HostelFlank;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,4 +19,6 @@ public interface HostelService {
     public void createFlank(HostelFlank flank);
 
     public List<HostelFlank> getHostelsFlank(int id);
+
+    public List<FlankRooms> getFlankRooms(String flankName);
 }

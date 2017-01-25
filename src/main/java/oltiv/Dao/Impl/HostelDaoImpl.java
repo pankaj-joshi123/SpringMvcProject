@@ -48,10 +48,10 @@ public class HostelDaoImpl implements HostelDao {
         {
             FlankRooms room= new FlankRooms();
             room.setRoomLabel("Room:"+String.valueOf(startingRoomNo));
-            room.setFlankName(flank.getFlankName());
+            room.setFlankName(flank.getFlankName());                                        ////saving rooms and increasing the room numbers
             startingRoomNo++;
             System.out.print("\n\n\n\n\n\n\n\n"+room.getRoomLabel()+"\n\n\nsaving room\n\n\n\n\n");
-            session.saveOrUpdate(room);                                 ////saving rooms by increasing the room numbers
+            session.saveOrUpdate(room);
         }
     }
 
@@ -62,6 +62,16 @@ public class HostelDaoImpl implements HostelDao {
         SQLQuery query = session.createSQLQuery(sql);
         query.addEntity(HostelFlank.class);
         List<HostelFlank> results = query.list();
+        return results;
+    }
+
+    @Override
+    public List<FlankRooms> getFlankRooms(String flankName) {
+        Session session=sessionFactory.getCurrentSession();
+        String sql = "SELECT * FROM Room where flankName='"+flankName+"'";
+        SQLQuery query = session.createSQLQuery(sql);
+        query.addEntity(FlankRooms.class);                             //// the query add entity is very important else it will search if any columns is left of this class and give error
+        List<FlankRooms> results = query.list();
         return results;
     }
 
