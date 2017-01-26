@@ -1,5 +1,7 @@
 angular.module('oltiv.hostelList',[])
-.controller('hostelListCtrl', function($scope,$http,$state){
+.controller('hostelListCtrl', function($scope,$http,$state,$stateParams){
+
+$scope.user=$stateParams.userObject;
 
 $http({
       method: "GET",
@@ -10,10 +12,9 @@ $http({
     },
      function error(response) {
      console.log(response);
-
     });
 
     $scope.showHostelOverview=function(hostel) {
-		$state.go('hostelOverview',{'hostelObject':hostel});
+		$state.go('hostelOverview',{'hostelObject':hostel,'userObject':$stateParams.userObject});
     }
 })

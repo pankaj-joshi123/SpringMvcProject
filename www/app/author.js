@@ -73,7 +73,8 @@ app.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider
  .state('hostelList',{
         url:'/hostelList',
         templateUrl: 'app/modules/containers/hostelList.html',
-        controller: 'hostelListCtrl'
+        controller: 'hostelListCtrl',
+        params: {'userObject':null}
        })
 
  .state('createHostel',{
@@ -86,7 +87,8 @@ app.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider
      url:'/hostelOverview',
      templateUrl: 'app/modules/containers/hostelOverview.html',
      controller: "hostelOverViewController",
-     params: {'hostelObject':null}
+     params: {'hostelObject':null,
+              'userObject':null}
      })
 
  .state('createFlank',{
@@ -101,7 +103,8 @@ app.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider
       url:'/flankOverview',
       templateUrl: 'app/modules/containers/flankOverview.html',
       controller: "flankOverViewController",
-      params: {'flankObject':null}
+      params: {'flankObject':null,
+               'userObject':null}
       })
 
  .state('roomOverview',{
@@ -109,7 +112,8 @@ app.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider
        templateUrl: 'app/modules/containers/roomOverView.html',
        controller: "roomOverViewController",
        params: {'roomObject':null,
-                'flankObject':null
+                'flankObject':null,
+                'userObject':null
                }
        })
 

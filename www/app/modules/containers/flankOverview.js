@@ -1,6 +1,7 @@
 angular.module('oltiv.flankOverview',[])
 .controller('flankOverViewController', function($scope,$stateParams,$state,$http){
   $scope.flank=$stateParams.flankObject;
+  $scope.user=$stateParams.userObject;
 
   $http({
           method: "GET",
@@ -26,6 +27,6 @@ angular.module('oltiv.flankOverview',[])
 
 
   $scope.showRoomOverview=function(room) {
-    $state.go('roomOverview',{'roomObject':room,'flankObject':$scope.flank})
+    $state.go('roomOverview',{'roomObject':room,'flankObject':$scope.flank,'userObject':$stateParams.userObject})
   }
 })
