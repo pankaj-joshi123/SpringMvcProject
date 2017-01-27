@@ -13,6 +13,6 @@
       </id>
       <property name="roomLabel" column="roomLabel" type="string"/>
       <property name="noofStudentsPresent" column="noofStudentsPresent" type="int"/>
-      <property name="flankName" column="flankName" type="string"/>
+      <property name="flankId" column="flankId" type="int"/>
    </class>
 </hibernate-mapping>

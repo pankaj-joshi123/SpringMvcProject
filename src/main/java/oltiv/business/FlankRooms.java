@@ -4,7 +4,7 @@ public class FlankRooms {
     int id;
     String  roomLabel;
     int noofStudentsPresent;
-    String flankName;
+    int flankId;
 
     public int getId() {
         return id;
@@ -30,11 +30,11 @@ public class FlankRooms {
         this.noofStudentsPresent = studentsPresent;
     }
 
-    public String getFlankName() {
-        return flankName;
+    public int getFlankId() {
+        return flankId;
     }
 
-    public void setFlankName(String flankName) {
-        this.flankName = flankName;
+    public void setFlankId(int flankId) {
+        this.flankId = flankId;
     }
 }

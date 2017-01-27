@@ -13,11 +13,15 @@ import java.util.List;
 public interface HostelDao {
     public List<Hostel> getAllHostels();
 
-    public void createHostel(Hostel hostel);
+    public Hostel createHostel(Hostel hostel);
 
-    public void addFlankToHostel(HostelFlank flank);
+    public Hostel getHostelOverview(int hostelId);
+
+    public HostelFlank addFlankToHostel(HostelFlank flank);
+
+    public HostelFlank getFlankOverview(int flankId);
 
     public List<HostelFlank> getHostelFlank(int id);
 
-    public List<FlankRooms> getFlankRooms(String flankName);
+    public List<FlankRooms> getFlankRooms(int flankId);
 }

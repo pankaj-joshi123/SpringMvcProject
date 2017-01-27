@@ -15,6 +15,6 @@ $http({
     });
 
     $scope.showHostelOverview=function(hostel) {
-		$state.go('hostelOverview',{'hostelObject':hostel,'userObject':$stateParams.userObject});
+		$state.go('hostelOverview',{hostelId:hostel.id,'userObject':$stateParams.userObject});
     }
 })

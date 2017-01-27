@@ -27,14 +27,26 @@ public class HostelServiceImpl implements HostelService {
 
     @Override
     @Transactional
-    public void createHostel(Hostel hostel) {
-        masterDao.getHostelDao().createHostel(hostel);
+    public Hostel createHostel(Hostel hostel) {
+        return masterDao.getHostelDao().createHostel(hostel);
     }
 
     @Override
     @Transactional
-    public void createFlank(HostelFlank flank) {
-        masterDao.getHostelDao().addFlankToHostel(flank);
+    public Hostel getHostelOverview(int hostelId) {
+       return masterDao.getHostelDao().getHostelOverview(hostelId);
+    }
+
+    @Override
+    @Transactional
+    public HostelFlank createFlank(HostelFlank flank) {
+        return masterDao.getHostelDao().addFlankToHostel(flank);
+    }
+
+    @Override
+    @Transactional
+    public HostelFlank getFlankOverview(int flankId) {
+        return masterDao.getHostelDao().getFlankOverview(flankId);
     }
 
     @Override
@@ -46,8 +58,8 @@ public class HostelServiceImpl implements HostelService {
 
     @Override
     @Transactional
-    public List<FlankRooms> getFlankRooms(String flankName) {
-        List<FlankRooms> rooms=masterDao.getHostelDao().getFlankRooms(flankName);
+    public List<FlankRooms> getFlankRooms(int flankId) {
+        List<FlankRooms> rooms=masterDao.getHostelDao().getFlankRooms(flankId);
         return rooms;
     }
 }

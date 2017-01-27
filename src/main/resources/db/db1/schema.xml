@@ -126,4 +126,15 @@
     </addColumn>
   </changeSet>
 
+  <changeSet author="pjoshi" id="Dropping FlankNameColumn">
+    <dropColumn columnName="flankName"
+                tableName="Room"/>
+  </changeSet>
+
+  <changeSet id="Adding Flank id instead of flank Name" author="pjoshi">
+    <addColumn tableName="Room">
+      <column name="flankId" type="int"></column>
+    </addColumn>
+  </changeSet>
+
 </databaseChangeLog>

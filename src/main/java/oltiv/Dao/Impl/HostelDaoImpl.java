@@ -31,13 +31,24 @@ public class HostelDaoImpl implements HostelDao {
     }
 
     @Override
-    public void createHostel(Hostel hostel) {
+    public Hostel createHostel(Hostel hostel) {
         Session session=sessionFactory.getCurrentSession();
         session.saveOrUpdate(hostel);
+        return hostel;                                                ///once it is saved then id will be attatched to this database object
     }
 
     @Override
-    public void addFlankToHostel(HostelFlank flank) {
+    public Hostel getHostelOverview(int id) {
+        Session session=sessionFactory.getCurrentSession();
+        String sql = "SELECT * FROM Hostel where id="+id;
+        SQLQuery query = session.createSQLQuery(sql);
+        query.addEntity(Hostel.class);
+        Hostel results = (Hostel) query.list().get(0);
+        return results;
+    }
+
+    @Override
+    public HostelFlank addFlankToHostel(HostelFlank flank) {
         Session session=sessionFactory.getCurrentSession();
         session.saveOrUpdate(flank);                                 ///as the flank is created we will create the rooms fot this flank also
 
@@ -48,11 +59,23 @@ public class HostelDaoImpl implements HostelDao {
         {
             FlankRooms room= new FlankRooms();
             room.setRoomLabel("Room:"+String.valueOf(startingRoomNo));
-            room.setFlankName(flank.getFlankName());                                        ////saving rooms and increasing the room numbers
+            room.setFlankId(flank.getId());                                        ////saving rooms and increasing the room numbers   giving the id of flank to which each room belongs
             startingRoomNo++;
             System.out.print("\n\n\n\n\n\n\n\n"+room.getRoomLabel()+"\n\n\nsaving room\n\n\n\n\n");
             session.saveOrUpdate(room);
         }
+
+        return flank;                                             ///now id will be attatched to the flank object for the overview purpose
+    }
+
+    @Override
+    public HostelFlank getFlankOverview(int id) {
+        Session session=sessionFactory.getCurrentSession();
+        String sql = "SELECT * FROM Hostel_flank where id="+id;
+        SQLQuery query = session.createSQLQuery(sql);
+        query.addEntity(HostelFlank.class);
+        HostelFlank results = (HostelFlank) query.list().get(0);
+        return results;
     }
 
     @Override
@@ -66,9 +89,9 @@ public class HostelDaoImpl implements HostelDao {
     }
 
     @Override
-    public List<FlankRooms> getFlankRooms(String flankName) {
+    public List<FlankRooms> getFlankRooms(int flankId) {
         Session session=sessionFactory.getCurrentSession();
-        String sql = "SELECT * FROM Room where flankName='"+flankName+"'";
+        String sql = "SELECT * FROM Room where flankId="+flankId;
         SQLQuery query = session.createSQLQuery(sql);
         query.addEntity(FlankRooms.class);                             //// the query add entity is very important else it will search if any columns is left of this class and give error
         List<FlankRooms> results = query.list();
