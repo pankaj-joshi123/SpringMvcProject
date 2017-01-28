@@ -48,4 +48,14 @@ public class UserDaoImpl implements UserDao {
         List<User> results = query.list();
         return results;
     }
+
+    @Override
+    public List<User> getAllUsersOfRoom(int roomId) {
+        Session session=sessionFactory.getCurrentSession();
+        String sql = "SELECT * FROM User where roomId="+roomId;
+        SQLQuery query = session.createSQLQuery(sql);
+        query.addEntity(User.class);
+        List<User> results = query.list();
+        return results;
+    }
 }

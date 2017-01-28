@@ -8,6 +8,7 @@ public class User {
     String loginName;
     String email;
     String password;
+    int roomId;
 
     public int getId() {return id;}
     public void setId(int id) {this.id = id;}
@@ -35,6 +36,14 @@ public class User {
 
     public String getPassword() {return password;}
     public void setPassword(String password) {this.password = password;}
+
+    public int getRoomId() {
+        return roomId;
+    }
+
+    public void setRoomId(int roomId) {
+        this.roomId = roomId;
+    }
 
     public void makeUser(String[] object) {
         this.setAge(Integer.parseInt(object[0]));

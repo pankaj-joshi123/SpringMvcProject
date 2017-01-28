@@ -14,5 +14,7 @@ public interface UserDao {
 
     public User getUserByLoginName(String name);
 
-    List<User> getAllUsers();
+    public List<User> getAllUsers();
+
+    public List<User> getAllUsersOfRoom(int roomId);
 }

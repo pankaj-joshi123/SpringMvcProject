@@ -1,4 +1,16 @@
 For the Room in Flank Below are the Users Present in the rooms
 
-This is the room {{room.roomLabel}} present in Flank: {{flank.flankName}}
+<H1>This is the room {{room.roomLabel}} present in Flank: {{flank.flankName}}</H1>
+<button type="button" class="btn btn-danger" ng-click="addUserToRoom()">Add User To This Room</button><br><br>
+<button type="button" class="btn btn-danger" ng-click="addUserManuallyToRoom()">Create New User Here Manually</button>
 {{user}}
+<table class="hoverTable">
+    <tr>
+        <td>Users Present In the room</td>
+    </tr>
+    <tr ng-repeat="employee in employees" ng-click="showUserOverview(user)">
+        <td>{{employee.name}}</td>
+        <td>{{employee.lastName}}</td>
+        <td>{{employee.loginName}}</td><br>
+    </tr>
+</table>

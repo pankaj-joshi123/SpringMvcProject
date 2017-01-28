@@ -137,4 +137,15 @@
     </addColumn>
   </changeSet>
 
+  <changeSet id="Adding Room Capacity column to room table" author="pjoshi">
+    <addColumn tableName="Room">
+      <column name="capacityOfRoom" type="int"></column>
+    </addColumn>
+  </changeSet>
+
+  <changeSet id="Adding column in UserTable for user Room Location" author="pjoshi">
+    <addColumn tableName="User">
+      <column name="roomId" type="int"></column>
+    </addColumn>
+  </changeSet>
 </databaseChangeLog>

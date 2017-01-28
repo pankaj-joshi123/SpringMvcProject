@@ -14,5 +14,6 @@
       <property name="roomLabel" column="roomLabel" type="string"/>
       <property name="noofStudentsPresent" column="noofStudentsPresent" type="int"/>
       <property name="flankId" column="flankId" type="int"/>
+      <property name="capacityOfRoom" column="capacityOfRoom" type="int"/>
    </class>
 </hibernate-mapping>

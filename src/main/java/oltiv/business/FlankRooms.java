@@ -3,6 +3,7 @@ package oltiv.business;
 public class FlankRooms {
     int id;
     String  roomLabel;
+    int capacityOfRoom;
     int noofStudentsPresent;
     int flankId;
 
@@ -28,6 +29,14 @@ public class FlankRooms {
 
     public void setNoofStudentsPresent(int studentsPresent) {
         this.noofStudentsPresent = studentsPresent;
+    }
+
+    public int getCapacityOfRoom() {
+        return capacityOfRoom;
+    }
+
+    public void setCapacityOfRoom(int capacityOfRoom) {
+        this.capacityOfRoom = capacityOfRoom;
     }
 
     public int getFlankId() {

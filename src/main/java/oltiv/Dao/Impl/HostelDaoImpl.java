@@ -59,6 +59,7 @@ public class HostelDaoImpl implements HostelDao {
         {
             FlankRooms room= new FlankRooms();
             room.setRoomLabel("Room:"+String.valueOf(startingRoomNo));
+            room.setCapacityOfRoom(flank.getStudenPerRoom());
             room.setFlankId(flank.getId());                                        ////saving rooms and increasing the room numbers   giving the id of flank to which each room belongs
             startingRoomNo++;
             System.out.print("\n\n\n\n\n\n\n\n"+room.getRoomLabel()+"\n\n\nsaving room\n\n\n\n\n");

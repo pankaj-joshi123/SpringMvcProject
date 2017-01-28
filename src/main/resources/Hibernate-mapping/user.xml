@@ -17,6 +17,7 @@
       <property name="loginName" column="loginName" type="string"/>
       <property name="email" column="emailid" type="string"/>
       <property name="password" column="password" type="string"/>
+      <property name="roomId" column="roomId" type="int"/>
       <!--sql-query name="getUserByLoginName">
          select
             distinct User

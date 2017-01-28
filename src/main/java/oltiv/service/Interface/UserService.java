@@ -18,4 +18,6 @@ public interface UserService {
     public List<User> getAllUsers();
 
     public void addMultipleUsers(String[] details);
+
+    public List<User> getAllUsersOfRoom(int roomId);
 }

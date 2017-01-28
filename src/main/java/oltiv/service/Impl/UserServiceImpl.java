@@ -57,4 +57,11 @@ public class UserServiceImpl implements UserService {
         newUser.makeUser(details);
         createUser(newUser);
     }
+
+    @Override
+    @Transactional
+    public List<User> getAllUsersOfRoom(int roomId) {
+        List<User> users=masterDao.getUserDao().getAllUsersOfRoom(roomId);
+        return users;
+    }
 }

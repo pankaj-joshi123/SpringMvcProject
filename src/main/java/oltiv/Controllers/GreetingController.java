@@ -59,12 +59,18 @@ public class GreetingController {
         return users;
     }
 
+    @RequestMapping(value="/getAllUsersOfRoom/{roomId}",method=RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public List<User> viewAllUsersOfRoom(@PathVariable int roomId) {  ///Returns complete list of all the Users in the Police Department
+        List<User> users= userSvc.getAllUsersOfRoom(roomId);
+        return users;
+    }
+
     @RequestMapping(value="/bulkImport",method=RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public void bulkImport() throws FileNotFoundException {
-
-
         BufferedReader br = null;
         String csvFile = "/home/pankaj/IdeaProjects/openspec/src/main/resources/numbers.csv";
         br = new BufferedReader(new FileReader(csvFile));
