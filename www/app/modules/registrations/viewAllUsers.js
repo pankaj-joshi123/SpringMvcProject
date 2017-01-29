@@ -13,7 +13,7 @@ $http({
 
     });
 
-    $scope.uploadFile = function() {
+ $scope.uploadFile = function() {
 
     $http({
       method: "GET",
@@ -24,9 +24,22 @@ $http({
     function error(response) {
       console.log(response);
     });
-    }
+ }
 
-    $scope.showUserOverview=function(user) {
+ $scope.showUserOverview=function(user) {
 		$state.go('userOverview',{'empObject':user});
-    }
+ }
+
+ $scope.writeRecordsToFile = function() {
+     $http({
+       method: "GET",
+       url:"http://localhost:8080/openspec-1/masti/oltiv/greeting/writeToCSV"
+     }).then(function success(response) {
+       console.log(response.data);
+     },
+     function error(response) {
+       console.log(response);
+     });
+  }
+
 })

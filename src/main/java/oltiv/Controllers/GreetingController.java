@@ -88,4 +88,11 @@ public class GreetingController {
             e.printStackTrace();
         }
     }
+
+    @RequestMapping(value="/writeToCSV",method=RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public void writeToCSV() {
+        userSvc.sendToPrint();
+    }
 }

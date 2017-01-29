@@ -1,10 +1,15 @@
 package oltiv.service.Impl;
 
+import au.com.bytecode.opencsv.CSVWriter;
 import oltiv.Dao.Interface.MasterDao;
 import oltiv.business.User;
 import oltiv.service.Interface.UserService;
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -64,4 +69,37 @@ public class UserServiceImpl implements UserService {
         List<User> users=masterDao.getUserDao().getAllUsersOfRoom(roomId);
         return users;
     }
+
+    @Override
+    @Transactional
+    public void sendToPrint() {
+
+        String outputFile = "/home/pankaj/IdeaProjects/openspec/src/main/resources/usersList.csv";
+
+        try {
+            CSVWriter csvOutput = new CSVWriter(new FileWriter(outputFile, false), ',');
+            List<User> users=getAllUsers();
+            String [] headers = "ID#Name#Last Name#Login Name#Email".split("#");
+            csvOutput.writeNext(headers);
+
+            for (int i=0;i<users.size();i++) {
+                String [] user=new String[6];
+
+                user[0]= String.valueOf(users.get(i).getId());
+                user[1]= users.get(i).getName();
+                user[2]= users.get(i).getLastname();
+                user[3]= users.get(i).getLoginName();
+                user[4]= users.get(i).getEmail();
+
+                csvOutput.writeNext(user);
+            }
+
+            csvOutput.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
 }

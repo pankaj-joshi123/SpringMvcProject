@@ -20,4 +20,7 @@ public interface UserService {
     public void addMultipleUsers(String[] details);
 
     public List<User> getAllUsersOfRoom(int roomId);
+
+    public void sendToPrint();
+
 }
