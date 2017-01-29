@@ -3,6 +3,11 @@
 <button type="button" class="btn btn-danger" ng-click="uploadFile()">Bulk Upload</button><br>
 
 <button type="button" class="btn btn-danger" ng-click="writeRecordsToFile()">Write Records To CSV</button><br>
+
+<H2>Type a letter in the input field For Filtering Results quickly:</H2>
+
+<p><input type="text" ng-model="test"></p>
+
 <style style="text/css">
   	.hoverTable{
 		width:100%;
@@ -25,7 +30,7 @@
     <tr>
         <td>First Name</td><td>Last Name</td><td>Login Name</td><td>Email Id</td>
     </tr>
-    <tr ng-repeat="user in users" ng-click="showUserOverview(user)">
+    <tr ng-repeat="user in users| filter:test" ng-click="showUserOverview(user)">
         <td>{{user.name}}</td><td>{{user.lastname}}</td><td>{{user.loginName}}</td><td>{{user.email}}</td>
     </tr>
 </table>
